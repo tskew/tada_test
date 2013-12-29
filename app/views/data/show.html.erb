@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @datum.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @datum.phone %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @datum.supplier_id %>
+</p>
+
+<%= link_to 'Edit', edit_datum_path(@datum) %> |
+<%= link_to 'Back', data_path %>
