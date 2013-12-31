@@ -14,6 +14,6 @@
   <strong>Phone:</strong>
   <%= @supplier.phone %>
 </p>
-
+<%= link_to 'Add data from this supplier', :controller => "data", :action => "new", :supp_id => @supplier %>
 <%= link_to 'Edit', edit_supplier_path(@supplier) %> |
 <%= link_to 'Back', suppliers_path %>

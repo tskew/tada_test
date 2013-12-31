@@ -15,6 +15,12 @@ class DataController < ApplicationController
   # GET /data/new
   def new
     @datum = Datum.new
+    @supplier = Supplier.all
+  end
+
+  def import
+    Datum.import(params[:file], params[:supplier_id])
+    redirect_to data_url, notice: "Data imported."
   end
 
   # GET /data/1/edit
@@ -24,7 +30,7 @@ class DataController < ApplicationController
   # POST /data
   # POST /data.json
   def create
-    @datum = Datum.new(datum_params)
+    @datum = Supplier.Datum.build(datum_params)
 
     respond_to do |format|
       if @datum.save

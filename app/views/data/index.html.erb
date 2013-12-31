@@ -17,7 +17,6 @@
       <tr>
         <td><%= datum.name %></td>
         <td><%= datum.phone %></td>
-        <td><%= datum.supplier_id %></td>
         <td><%= link_to 'Show', datum %></td>
         <td><%= link_to 'Edit', edit_datum_path(datum) %></td>
         <td><%= link_to 'Destroy', datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,5 +27,4 @@
 
 <br>
 
-<%= link_to 'New Datum', new_datum_path %><br><br>
 <%= link_to "Check data suppliers", controller: 'suppliers' %><br>
