@@ -1,0 +1,30 @@
+<h1>Listing reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Upload Date</th>
+      <th>Errors</th>
+      <th>Total Records</th>
+      <th>Percent Uploaded</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.created_at.strftime('%Y-%m-%d') %></td>
+        <td><%= report.error_number %></td>
+        <td><%= report.total_records %></td>
+        <td><%= ((report.total_records.to_f - report.error_number.to_f) / report.total_records.to_f * 100).round(1) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'View Suppliers', suppliers_path %><br>
+<%= link_to 'View Data', data_path %>
+

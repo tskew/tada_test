@@ -1,6 +1,9 @@
 TestApp::Application.routes.draw do
+
   get "welcome/index"
-  resources :suppliers
+  resources :suppliers do
+    resources :reports
+  end
   resources :data do
     collection { post :import }
   end

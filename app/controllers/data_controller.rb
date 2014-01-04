@@ -22,7 +22,7 @@ class DataController < ApplicationController
 
   def import
     Datum.import(params[:file], params[:supplier_id])
-    redirect_to data_url, notice: "Data imported."
+    redirect_to supplier_reports_path(params[:supplier_id])
   end
 
   # GET /data/1/edit

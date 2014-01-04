@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131229154629) do
+ActiveRecord::Schema.define(version: 20140104132423) do
 
   create_table "data", force: true do |t|
     t.string   "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20131229154629) do
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "data", ["phone"], name: "index_data_on_phone", unique: true
+
+  create_table "reports", force: true do |t|
+    t.integer  "supplier_id"
+    t.integer  "error_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "total_records"
   end
 
   create_table "suppliers", force: true do |t|
