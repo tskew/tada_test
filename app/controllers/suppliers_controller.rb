@@ -11,7 +11,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers/1.json
   def show
     @supplier = Supplier.find(params[:id])
-    @reports = @supplier.reports
+    # @reports = @supplier.reports
   end
 
   # GET /suppliers/new

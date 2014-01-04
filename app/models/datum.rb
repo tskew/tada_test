@@ -19,4 +19,13 @@ class Datum < ActiveRecord::Base
 		output = Report.new(supplier_id: supplier_id, error_number: error_count, total_records: record_count)
 		output.save!
 	end
+
+	def self.to_csv
+		CSV.generate do |csv|
+			csv << column_names
+			all.each do |datum|
+				csv << datum.attributes.values_at(*column_names)
+			end
+		end
+	end
 end

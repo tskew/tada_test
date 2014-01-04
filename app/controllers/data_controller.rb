@@ -6,6 +6,10 @@ class DataController < ApplicationController
   def index
     @data = Datum.all
     @supplier = Supplier.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @data.to_csv }
+    end
   end
 
   # GET /data/1
