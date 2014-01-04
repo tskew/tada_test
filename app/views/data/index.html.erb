@@ -1,5 +1,20 @@
 <h1>Active data</h1>
 
+<%= form_tag data_path, :method => 'get' do %>
+  <p>
+    Limit to: <%= text_field_tag :top_x, params[:top_x] %> records.
+    <%= submit_tag "Submit", :name =>nil %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Download as csv file", data_path(format: "csv", :top_x => params[:top_x]) %>
+</p>
+
+<%= link_to "Import data", new_datum_path %><br>
+<%= link_to "Check data suppliers", controller: 'suppliers' %><br>
+<br>
+
 <table>
   <thead>
     <tr>
@@ -25,7 +40,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to "Import data", new_datum_path %><br>
-<%= link_to "Check data suppliers", controller: 'suppliers' %><br>

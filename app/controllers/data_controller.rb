@@ -4,11 +4,11 @@ class DataController < ApplicationController
   # GET /data
   # GET /data.json
   def index
-    @data = Datum.all
+    @data = Datum.all.limit(params[:top_x])
     @supplier = Supplier.all
     respond_to do |format|
       format.html
-      format.csv { render text: @data.to_csv }
+      format.csv { send_data @data.to_csv }
     end
   end
 
