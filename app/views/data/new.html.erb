@@ -1,10 +1,10 @@
 <h1>Import data</h1>
 
 <%= form_tag import_data_path, multipart:true do %>
-	<%= file_field_tag :file %>
-	<%= select_tag :supplier_id, options_from_collection_for_select(Suppliers.all, :id, :name) %>
+	<%= file_field_tag :file %><br>
+	<p>From supplier:
+	<%= select_tag :supplier_id, options_from_collection_for_select(@supplier, :id, :name) %></p>
 	<%= submit_tag "Import" %>
 <% end %>
 
 <%= link_to 'Back', data_path %>
-<%= debug params %>

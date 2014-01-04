@@ -5,11 +5,13 @@ class DataController < ApplicationController
   # GET /data.json
   def index
     @data = Datum.all
+    @supplier = Supplier.all
   end
 
   # GET /data/1
   # GET /data/1.json
   def show
+    @supplier = Supplier.all
   end
 
   # GET /data/new
