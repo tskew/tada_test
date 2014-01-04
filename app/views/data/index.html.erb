@@ -2,7 +2,7 @@
 
 <%= form_tag data_path, :method => 'get' do %>
   <p>
-    Limit to: <%= text_field_tag :top_x, params[:top_x] %> records.
+    Limit to: <%= number_field_tag :top_x, params[:top_x], :min => 1 %> records.
     <%= submit_tag "Submit", :name =>nil %>
   </p>
 <% end %>

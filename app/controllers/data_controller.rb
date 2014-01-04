@@ -4,7 +4,8 @@ class DataController < ApplicationController
   # GET /data
   # GET /data.json
   def index
-    @data = Datum.all.limit(params[:top_x])
+    #regex checks if the input is an integer
+    @data = Datum.all.limit((params[:top_x] =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/) ? params[:top_x] : nil)
     @supplier = Supplier.all
     respond_to do |format|
       format.html
